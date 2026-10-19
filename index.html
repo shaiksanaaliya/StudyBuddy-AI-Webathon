@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="StudyBuddy AI — a student-friendly study planner, notes helper, and quiz practice prototype.">
+  <title>StudyBuddy AI | Your personal study space</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="brand"><span class="brand-mark">✦</span><span>StudyBuddy<span class="brand-ai"> AI</span></span></div>
+    <p class="side-label">WORKSPACE</p>
+    <button class="nav-btn active" data-section="dashboard">▦ <span>Dashboard</span></button>
+    <button class="nav-btn" data-section="notes">▤ <span>Notes helper</span></button>
+    <button class="nav-btn" data-section="quiz">◉ <span>Quiz practice</span></button>
+    <button class="nav-btn" data-section="planner">☑ <span>Study planner</span></button>
+    <div class="sidebar-bottom">
+      <div class="mini-avatar">S</div><div><strong>Student space</strong><small>Progress saved on this device</small></div>
+    </div>
+  </aside>
+  <main class="main">
+    <header class="topbar"><div><p class="eyebrow">YOUR LEARNING SPACE</p><h1 id="pageTitle">Good to see you! <span>✦</span></h1></div><div class="date-pill" id="todayDate"></div></header>
+    <section class="view active" id="dashboard">
+      <div class="hero"><div><p class="eyebrow light">SMALL STEPS. BIG PROGRESS.</p><h2>Make today a<br>little more focused.</h2><p>Plan your learning, revise your notes, and practise one question at a time.</p><button class="primary-btn" data-go="planner">Plan my study day <span>→</span></button></div><div class="hero-art" aria-hidden="true"><div class="sun"></div><div class="book book-one"></div><div class="book book-two"></div><div class="plant">✦</div></div></div>
+      <div class="section-heading"><div><p class="eyebrow">OVERVIEW</p><h2>Your progress</h2></div><span class="muted">A little every day adds up.</span></div>
+      <div class="stats-grid">
+        <article class="stat-card"><div class="stat-icon lavender">☑</div><p>Tasks completed</p><strong id="completedCount">0</strong><small>Keep your streak going</small></article>
+        <article class="stat-card"><div class="stat-icon peach">▤</div><p>Tasks planned</p><strong id="plannedCount">0</strong><small>Your next small step</small></article>
+        <article class="stat-card"><div class="stat-icon mint">◉</div><p>Quiz best score</p><strong id="bestScore">—</strong><small>Practice makes progress</small></article>
+      </div>
+      <div class="two-col"><article class="panel"><div class="panel-head"><div><p class="eyebrow">UP NEXT</p><h3>Today's study tasks</h3></div><button class="text-btn" data-go="planner">View all →</button></div><div id="dashboardTasks" class="task-list"></div></article>
+      <article class="panel quote-panel"><div class="quote-mark">“</div><p class="eyebrow">A GENTLE REMINDER</p><h3>You don't have to learn everything today.</h3><p>Choose one useful thing, give it your attention, and let that be enough for now.</p><div class="quote-line"></div><small>YOUR STUDY BUDDY</small></article></div>
+      <p class="prototype-note">Prototype note: summaries and questions are generated with local rules; no external AI service is connected.</p>
+    </section>
+    <section class="view" id="notes">
+      <div class="section-heading"><div><p class="eyebrow">LEARN SMARTER</p><h2>Notes helper</h2><p class="muted">Paste your notes to create a quick revision summary.</p></div></div>
+      <div class="panel tool-panel"><label for="notesInput">Your study notes</label><textarea id="notesInput" rows="9" placeholder="Paste a paragraph or your class notes here..."></textarea><div class="actions"><span class="muted" id="wordCount">0 words</span><button class="primary-btn" id="summarizeBtn">Create summary ✦</button></div><div id="summaryOutput" class="output hidden" aria-live="polite"></div></div>
+      <div class="tip-card"><span>✦</span><div><strong>Revision tip</strong><p>After reading the summary, explain the topic in your own words without looking at your notes.</p></div></div>
+    </section>
+    <section class="view" id="quiz">
+      <div class="section-heading"><div><p class="eyebrow">CHECK YOUR UNDERSTANDING</p><h2>Quiz practice</h2><p class="muted">Create simple practice questions from your notes.</p></div></div>
+      <div class="panel tool-panel"><label for="quizInput">Topic or notes</label><textarea id="quizInput" rows="5" placeholder="Example: Photosynthesis is the process by which green plants use sunlight..."></textarea><div class="actions"><span class="muted">Use at least a few sentences for better practice.</span><button class="primary-btn" id="generateQuizBtn">Make practice quiz ✦</button></div><div id="quizOutput" class="quiz-output hidden" aria-live="polite"></div></div>
+    </section>
+    <section class="view" id="planner">
+      <div class="section-heading"><div><p class="eyebrow">BUILD A ROUTINE</p><h2>Study planner</h2><p class="muted">Make a realistic list and celebrate each completed task.</p></div></div>
+      <div class="panel tool-panel"><form id="taskForm" class="task-form"><div class="field"><label for="taskName">Study task</label><input id="taskName" required maxlength="90" placeholder="e.g. Revise Python loops"></div><div class="field small-field"><label for="taskSubject">Subject</label><select id="taskSubject"><option>Computer Science</option><option>GATE Preparation</option><option>Python</option><option>General Knowledge</option><option>Other</option></select></div><button class="primary-btn" type="submit">+ Add task</button></form><div class="progress-wrap"><div><strong>Today's progress</strong><span id="progressText">0% complete</span></div><div class="progress-track"><div id="progressBar"></div></div></div><div id="taskList" class="task-list large-list"></div><button class="text-btn danger hidden" id="clearTasks">Clear all tasks</button></div>
+    </section>
+    <footer>Made for students, with care <span>✦</span> <span class="footer-right">StudyBuddy AI · Webathon 2026 prototype</span></footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
